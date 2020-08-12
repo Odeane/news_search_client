@@ -8,6 +8,7 @@ const NewsSearch = () => {
 
 
   const [article, setArticle] = useState([])
+  const [search, setSearch] = useState('obama')
   
 
   const getArticles = async () => {
@@ -22,21 +23,32 @@ const NewsSearch = () => {
   }
 
  const handleChange = (event) => {
-    console.log(event.target.value)
+    setSearch(event.target.value)
+ }
+  
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    
+
   }
+  
 
   return (
     <>
-      <Input
-        type="text"
-        data-cy="news-search"
-        placeholder="Input search term"
-        onChange={handleChange}
-      />
-      <Button onClick={getArticles}
-        data-cy="search-submit">
-        Search
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          data-cy="news-search"
+          placeholder="Input search term"
+          onChange={handleChange}
+          value={search}
+        />
+        <Button onClick={getArticles}
+          data-cy="search-submit">
+          Search
         </Button>
+      </form>
+   
     </>
   )
 }
