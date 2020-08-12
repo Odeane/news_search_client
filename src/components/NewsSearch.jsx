@@ -4,9 +4,6 @@ import axios from 'axios'
 
 const NewsSearch = () => {
 
-
-
-
   const [articles, setArticles] = useState([])
   const [search, setSearch] = useState('')
   const [query, setQuery] = useState('')
@@ -35,7 +32,6 @@ const NewsSearch = () => {
     setQuery(search)
   }
 
-
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -55,7 +51,6 @@ const NewsSearch = () => {
         {
           articles.map(article =>
             <div >
-              console.log(article)
             <h2 >{article.author}</h2>
               <h1 >{article.title}</h1>
             </div>
