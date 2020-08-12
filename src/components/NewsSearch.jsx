@@ -4,13 +4,13 @@ import axios from 'axios'
 
 const NewsSearch = () => {
 
-  
+
 
 
   const [articles, setArticles] = useState([])
-  const [search, setSearch] = useState('biden')
+  const [search, setSearch] = useState('')
   const [query, setQuery] = useState('')
-  
+
   useEffect(() => {
     getArticles()
   }, [query])
@@ -19,22 +19,22 @@ const NewsSearch = () => {
     await axios.get(`http://newsapi.org/v2/everything?q=${query}&from=2020-07-12&sortBy=publishedAt&<apiKey>`)
       .then(response => {
         setArticles(response.data.articles)
-        console.log(response)
+
       })
       .catch(error => {
-      console.log(error)
-    })
+        console.log(error)
+      })
   }
 
- const handleChange = (event) => {
+  const handleChange = (event) => {
     setSearch(event.target.value)
- }
-  
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
     setQuery(search)
   }
-  
+
 
   return (
     <>
@@ -51,15 +51,14 @@ const NewsSearch = () => {
           Search
         </Button>
       </form>
-      <div className='article'>
+      <div className= 'article'>
         {
           articles.map(article =>
-            <div>
+            <div >
               console.log(article)
-            <h2 id='article'>{article.author}</h2>
-            <h1 id='article'>{article.title}</h1>
+            <h2 >{article.author}</h2>
+              <h1 >{article.title}</h1>
             </div>
-            
           )
         }
       </div>

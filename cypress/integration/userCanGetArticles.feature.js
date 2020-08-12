@@ -10,9 +10,10 @@ describe('User can search articles', () => {
   });
 
   it('User can see title', (() => {
+    cy.get("input").type("biden")
     cy.get('#btn').click()
-    cy.get('h2').should('contain','Rasheed Sobowale')
-    cy.get('h1').should('contain', 'US: Harris under scrutiny for tough-on-crime prosecutor past')
+    cy.get('.article').should('contain','Rasheed Sobowale')
+    cy.get('.article').should('contain', 'US: Harris under scrutiny for tough-on-crime prosecutor past')
 }))
 
 })
