@@ -16,7 +16,7 @@ const NewsSearch = () => {
   }, [query])
 
   const getArticles = async () => {
-    await axios.get(`http://newsapi.org/v2/everything?q=${query}&from=2020-07-12&sortBy=publishedAt&apiKey=56fed1dc6cf34f1ba3d7ff9699de4c0a`)
+    await axios.get(`http://newsapi.org/v2/everything?q=${query}&from=2020-07-12&sortBy=publishedAt&<apiKey>`)
       .then(response => {
         setArticles(response.data.articles)
       })
