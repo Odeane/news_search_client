@@ -10,7 +10,7 @@ describe('User can search articles', () => {
   });
 
   it('User can see title', ( () => {
-    cy.get('#article').should('contain', 'Rasheed Sobowale')
+    cy.get('.article').should('contain', 'Rasheed Sobowale')
 }))
 
 })
